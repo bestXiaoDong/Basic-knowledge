@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>常用例子</title>
+</head>
+<body>
+    <header>
+        <h1>常用例子</h1>
+    </header>
+    <article>
+        <section>
+            <dl>
+                <dt>将用户输入转义为正则表达式中的一个字面字符串, 可以通过简单的替换来实现：</dt>
+                <dd>
+                    function escapeRegExp(string){
+                        return string.replace(/([.*+?^=!:${}()|[\]\/\\])/g, "\\$&"); 
+                        //$&表示整个被匹配的字符串
+                    }
+                </dd>
+            </dl>
+        </section>
+    </article>
+</body>
+</html>

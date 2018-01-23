@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>template</title>
+</head>
+<body>
+    <p>HTML &lt;template&gt;元素 是一种用于保存客户端内容的机制，该内容在页面加载时不被渲染，但可以在运行时使用JavaScript进行实例化。</p>
+    <p>可以通过判断 content 属性是否存在来判断浏览器是否支持  &lt;template&gt; 元素。</p>
+    <p>即<code>
+        content in template
+    </code></p>
+
+    <table id="p_table">
+        <thead>
+            <tr>
+                <td>code</td>
+                <td>name</td>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- 现有数据可以可选的包括在这里 -->
+        </tbody>
+    </table>
+
+    <template id="p_template">
+        <tr>
+            <td></td>
+            <td></td>
+        </tr>
+    </template>
+
+    <script>
+        //检测浏览器是否支持template
+        if('content' in document.createElement('template')) {
+            //使用现有的html tbody实例化模板
+            let t = document.querySelector('#p_template');
+            td = t.content.querySelectorAll('td');
+            td[0].textContent = '123456';
+            td[1].textContent = 'stuff';
+
+            let tb = document.querySelector('tbody');
+            let clone = document.importNode(t.content, true);
+            tb.appendChild(clone);
+
+            td[0].textContent = '67890';
+            td[1].textContent = 'best';
+            
+            let clone2 = document.importNode(t.content, true);
+
+            tb.appendChild(clone2);
+        }
+    </script>
+</body>
+</html>
